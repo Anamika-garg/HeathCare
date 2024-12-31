@@ -68,6 +68,7 @@ export default function RegisterPage() {
                 type="email"
                 required
                 value={formData.email}
+                placeholder='Enter your email'
                 onChange={handleChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
@@ -83,6 +84,7 @@ export default function RegisterPage() {
                 type="password"
                 required
                 value={formData.password}
+                placeholder='Create Your Password'
                 onChange={handleChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
@@ -98,6 +100,7 @@ export default function RegisterPage() {
                 type="text"
                 required
                 value={formData.fullName}
+                placeholder='Enter your Name'
                 onChange={handleChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
