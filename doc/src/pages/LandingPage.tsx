@@ -32,7 +32,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <main className="container mx-auto px-6 py-16">
+      <main className="container mx-auto px-6 py-16 mt-10">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Left Content */}
           <div className="lg:w-1/2">
@@ -72,13 +72,13 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-100 py-6">
+      {/* <footer className="bg-gray-100 py-6">
         <div className="container mx-auto text-center">
           <p className="text-sm text-gray-600">
             © {new Date().getFullYear()} DoctorPortal. All rights reserved.
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
