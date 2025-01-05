@@ -15,6 +15,10 @@ app.use(express.json());
 app.use("/api/user", userRouter);
 app.use("/api/doctor" , doctorRoutes);
 
+app.get('/' , (req,res)=>{
+  res.send("HealthCare Backend")
+})
+
 mongoose
   .connect(process.env.MONGO_URI, {
     dbName: "HeathCare_Mangament",

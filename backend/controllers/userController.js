@@ -694,7 +694,7 @@ async function cancelAppointment(req,res,next){
 
 async function getDoctors(req,res,next) {
   const doc = await Doctor.find({});
-  console.log(doc);
+  // console.log(doc);
   res.status(200).json(doc);
 
 }
