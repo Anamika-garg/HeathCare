@@ -25,7 +25,7 @@ function Dashboard() {
 
   async function getInfo() {
     try {
-      const res = await axios.get('http://localhost:3000/api/doctor/dashboard', {
+      const res = await axios.get('https://heath-care-backend.vercel.app/api/doctor/dashboard', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -42,7 +42,7 @@ function Dashboard() {
     try {
       setLoading(true);
       const res = await axios.put(
-        'http://localhost:3000/api/doctor/dashboard',
+        'https://heath-care-backend.vercel.app/api/doctor/dashboard',
         formData,
         {
           headers: {

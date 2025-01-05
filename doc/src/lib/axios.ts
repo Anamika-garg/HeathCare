@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/doctor'; // Replace with your actual API URL
+const API_URL = 'https://heath-care-backend.vercel.app/api/doctor'; // Replace with your actual API URL
 
 export const api = axios.create({
   baseURL: API_URL,
