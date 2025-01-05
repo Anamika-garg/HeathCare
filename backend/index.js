@@ -14,7 +14,7 @@ const corsOptions = {
     'http://localhost:5174', // Frontend 2 (local development)
     'https://heath-care-client.vercel.app', // Frontend 2 (deployed)
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE' , 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 app.use(cors(corsOptions));
