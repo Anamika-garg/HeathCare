@@ -23,6 +23,7 @@ function Dashboard() {
     getInfo();
   }, []);
 
+
   async function getInfo() {
     try {
       const res = await axios.get('https://heath-care-backend.vercel.app/api/doctor/dashboard', {
@@ -51,7 +52,10 @@ function Dashboard() {
         }
       );
       setDoctor(res.data); // Update doctor state with the updated data
+      console.log('doctor' , doctor)
       setEditing(false);
+      await getInfo();
+      setFormData(res.data);
       toast.success('Profile updated successfully');
     } catch (error) {
       toast.error('Failed to update profile');
