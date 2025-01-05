@@ -7,8 +7,17 @@ const userRouter = require("./routes/userRoutes.js");
 const doctorRoutes = require('./routes/doctorRoutes.js')
 
 const port = process.env.PORT || 3000;
-
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'http://localhost:5173', // Frontend 1 (local development)
+    'https://heath-care-5v4x.vercel.app', // Frontend 1 (deployed)
+    'http://localhost:5174', // Frontend 2 (local development)
+    'https://heath-care-client-a983y2u5h-anas-projects-aec9d35c.vercel.app', // Frontend 2 (deployed)
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 

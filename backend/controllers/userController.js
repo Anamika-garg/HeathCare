@@ -185,7 +185,7 @@ async function requestPasswordReset(req, res, next) {
     user.resetPasswordExpires = Date.now() + 1800000; // 30 min
     await user.save();
 
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetUrl = `https://heath-care-client-a983y2u5h-anas-projects-aec9d35c.vercel.app/reset-password/${resetToken}`;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
