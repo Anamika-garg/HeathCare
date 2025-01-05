@@ -67,6 +67,7 @@ export default function Login() {
               label="Email address"
               type="email"
               value={email}
+              placeholder={"Enter your Email"}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -75,6 +76,7 @@ export default function Login() {
               label="Password"
               type="password"
               value={password}
+              placeholder="Enter your Password"
               onChange={(e) => setPassword(e.target.value)}
               required
             />
