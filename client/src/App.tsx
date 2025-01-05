@@ -9,7 +9,6 @@ import ForgotPassword from './pages/ForgotPassword';
 import AdditionalInfo from './pages/AdditionalInfo';
 import NearbyHospitals from './pages/NearbyHospitals';
 import DoctorAppointments from './pages/DoctorAppointments';
-import DirectionsPage from './pages/DirectionsPage';
 import ResetPassword from './pages/ResetPassword';
 import { BPTracker } from './components/BPTracker';
 
@@ -26,7 +25,6 @@ function App() {
         <Route path="/additional-info" element={<AdditionalInfo />} />
         <Route path="/hospitals" element={<Layout><NearbyHospitals /></Layout>} />
         <Route path="/appointments" element={<Layout><DoctorAppointments /></Layout>} />
-        <Route path="/directions" element={<DirectionsPage />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/BP-tracker" element={<Layout><BPTracker /></Layout>} />
       </Routes>
