@@ -156,6 +156,42 @@ async function cancelAppointment(req, res, next) {
   }
 }
 
+async function updateDoctorProfile(req, res, next) {
+  const doctorId = req.user.id;
+  const { email, password, fullName, specialization, degree, experienceYears } = req.body;
+
+  try {
+    // Find the doctor by ID
+    const doctor = await Doctor.findById(doctorId);
+
+    // Check if the doctor exists
+    if (!doctor) {
+      return res.status(404).json({ error: "Doctor not found" });
+    }
+
+    // Update the doctor's profile
+    if (email) doctor.email = email.toLowerCase();  // Ensure email is in lowercase
+    if (password) doctor.password = password;  // You should hash the password before saving
+    if (fullName) doctor.fullName = fullName;
+    if (specialization) doctor.specialization = specialization;
+    if (degree) doctor.degree = degree;
+    if (experienceYears !== undefined) doctor.experienceYears = experienceYears;
+
+    // Save the updated doctor profile
+    await doctor.save();
+
+    // Send success response with updated profile data
+    res.status(200).json({
+      message: "Doctor profile updated successfully",
+      data : doctor,
+    });
+  } catch (error) {
+    console.error("Error updating doctor profile:", error);
+    res.status(500).json({ error: "Failed to update doctor profile" });
+  }
+}
+
+
 
 
 
@@ -165,4 +201,5 @@ module.exports = {
     getDoctorInfo,
     getAppointments,
     cancelAppointment,
+    updateDoctorProfile,
 }
