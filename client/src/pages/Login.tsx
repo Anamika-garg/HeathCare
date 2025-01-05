@@ -17,7 +17,7 @@ export default function Login() {
     e.preventDefault();
     // Add authentication logic here
     try {
-      const res = await axios.post(`http://localhost:3000/api/user/login`, {
+      const res = await axios.post(`https://heath-care-backend.vercel.app/api/user/login`, {
         email,
         password,
       });

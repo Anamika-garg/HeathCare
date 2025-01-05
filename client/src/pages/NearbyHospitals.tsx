@@ -48,7 +48,7 @@ export default function NearbyHospitals() {
   async function getNearbyHospitals() {
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/user/get-nearby-hospitals`,
+        `https://heath-care-backend.vercel.app/api/user/get-nearby-hospitals`,
         location,
         {
           headers: {

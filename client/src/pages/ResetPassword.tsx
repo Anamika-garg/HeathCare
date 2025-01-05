@@ -20,7 +20,7 @@ export default function ResetPassword(): JSX.Element {
     }
 
     try {
-      await axios.post(`http://localhost:3000/api/user/reset-password/${token}`, {
+      await axios.post(`https://heath-care-backend.vercel.app/api/user/reset-password/${token}`, {
         newPassword,
       });
       toast.success("Password reset successful! Redirecting to login...");

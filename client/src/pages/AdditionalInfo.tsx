@@ -73,7 +73,7 @@ export default function AdditionalInfo() {
 
     try {
 
-      const res = await axios.post(`http://localhost:3000/api/user/medical-info` , formData , {
+      const res = await axios.post(`https://heath-care-backend.vercel.app/api/user/medical-info` , formData , {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`, // Or use token from context
         }});

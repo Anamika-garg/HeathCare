@@ -10,7 +10,7 @@ export default function ForgotPassword(): JSX.Element {
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/user/reset-password", { email });
+      const res = await axios.post("https://heath-care-backend.vercel.app/api/user/reset-password", { email });
       toast.success(res.data.message);
       console.log(res)
     } catch (error: any) {

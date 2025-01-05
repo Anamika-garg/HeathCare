@@ -27,7 +27,7 @@ export default function Dashboard() {
 
   async function fetchDetails() {
     try {
-      const res = await axios.get(`http://localhost:3000/api/user/get-medical-info`, {
+      const res = await axios.get(`https://heath-care-backend.vercel.app/api/user/get-medical-info`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -45,7 +45,7 @@ export default function Dashboard() {
   const handleUpdateProfile = async (data : any) => {
     try {
       await axios.put(
-        'http://localhost:3000/api/user/update-profile',
+        'https://heath-care-backend.vercel.app/api/user/update-profile',
         data,
         {
           headers: {
@@ -64,7 +64,7 @@ export default function Dashboard() {
   const handleUpdateMedical = async (data : any) => {
     try {
       await axios.put(
-        'http://localhost:3000/api/user/update-medical-info',
+        'https://heath-care-backend.vercel.app/api/user/update-medical-info',
         data,
         {
           headers: {

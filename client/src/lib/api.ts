@@ -2,7 +2,7 @@ import { Doctor, Appointment } from '../types';
 import { MOCK_DOCTORS } from './mockData';
 import axios, { AxiosError } from 'axios';
 import { APIError } from './error';
-const API_URL = 'http://localhost:3000/api/user';
+const API_URL = 'https://heath-care-backend.vercel.app/api/user';
 
 // First try to fetch from API, fallback to mock data if it fails
 export async function fetchDoctors(): Promise<Doctor[]> {

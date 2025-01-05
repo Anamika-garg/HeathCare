@@ -25,7 +25,7 @@ export default function Register() {
     // Add validation logic here
 
     try {
-      const res = await axios.post(`http://localhost:3000/api/user/register`, formData);
+      const res = await axios.post(`https://heath-care-backend.vercel.app/api/user/register`, formData);
       console.log(res);
 
       // Show success message
