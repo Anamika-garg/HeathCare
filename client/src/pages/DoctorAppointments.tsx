@@ -12,6 +12,7 @@ export default function DoctorAppointments() {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [loading , setLoading] = useState(true);
 
   useEffect(() => {
     const isAuthenticated = checkAuthentication();
@@ -34,6 +35,7 @@ export default function DoctorAppointments() {
     try {
       const data = await fetchDoctors();
       setDoctors(data);
+      setLoading(false);
     } catch (error) {
       console.error('Error loading doctors:', error);
     }
@@ -43,6 +45,7 @@ export default function DoctorAppointments() {
     try {
       const data = await getAppointments();
       setAppointments(data);
+      setLoading(false);
     } catch (error) {
       console.error('Error loading appointments:', error);
     }
@@ -56,11 +59,16 @@ export default function DoctorAppointments() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
-        <AppointmentsList
+        {
+          appointments && doctors ? <AppointmentsList
           appointments={appointments}
           doctors={doctors}
           onUpdate={loadAppointments}
-        />
+        /> : loading ?  <div className="flex w-full items-center justify-center h-64">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      </div> : <></>
+        }
+        
         
         <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Available Doctors</h2>
@@ -72,7 +80,9 @@ export default function DoctorAppointments() {
                   doctor={doctor}
                   onBookAppointment={handleBookAppointment}
                 />
-              )) : <h1>No Doctors Registered yet </h1>
+              )) : loading ?  <div className="flex w-[50vw] items-center justify-center h-64">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                </div> : <h1>No Doctors Registered yet</h1>
             }
             
           </div>

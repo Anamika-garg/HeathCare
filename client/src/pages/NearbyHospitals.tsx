@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Hospital } from '../types';
-import { Button } from '../components/Button';
-import axios from 'axios';
-import HospitalCard from '../components/HospitalCard';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Hospital } from "../types";
+import { Button } from "../components/Button";
+import axios from "axios";
+import HospitalCard from "../components/HospitalCard";
+import { useNavigate } from "react-router-dom";
 
 export default function NearbyHospitals() {
-  const [location, setLocation] = useState<{ latitude: number | null; longitude: number | null }>({
+  const [location, setLocation] = useState<{
+    latitude: number | null;
+    longitude: number | null;
+  }>({
     latitude: null,
     longitude: null,
   });
@@ -16,9 +19,9 @@ export default function NearbyHospitals() {
 
   // Authentication check
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      navigate('/login'); // Redirect to login if no token
+      navigate("/login"); // Redirect to login if no token
     }
   }, [navigate]);
 
@@ -52,14 +55,14 @@ export default function NearbyHospitals() {
         location,
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
       console.log(res.data.hospitalData);
       setHospitalData(res.data.hospitalData);
     } catch (error) {
-      console.error('Error fetching hospital data:', error);
+      console.error("Error fetching hospital data:", error);
     } finally {
       setLoading(false);
     }
@@ -68,7 +71,14 @@ export default function NearbyHospitals() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Nearby Hospitals</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+          Nearby Hospitals
+        </h1>
+        {loading && (
+        <div className="flex w-full items-center justify-center h-64">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        </div>
+      )}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {hospitalData.map((hospital) => (
             <HospitalCard
@@ -80,8 +90,6 @@ export default function NearbyHospitals() {
               longitude={hospital.longitude}
             />
           ))}
-
-          {loading && <p>Loading...</p>}
         </div>
       </div>
     </div>

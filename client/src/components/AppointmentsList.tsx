@@ -43,7 +43,7 @@ export function AppointmentsList({
     <div className="space-y-4 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Your Appointments</h2>
     
-    {appointments.length === 0 ? (
+    {appointments.length === 0 ?  (
       <p className="text-gray-600">No appointments scheduled</p>
     ) : (
       <div className="grid gap-4">
